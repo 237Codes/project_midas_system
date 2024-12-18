@@ -19,10 +19,12 @@ public class KafkaProducer {
         System.out.println("Sending Transaction Line: " + transactionLine); // check if transaction line is being sent from producer
         String[] transactionData = transactionLine.split(", ");
 
+        //separate creation of new transaction so I can log it to verify its creation
+
         Transaction transactionNew = new Transaction(Long.parseLong(transactionData[0]), Long.parseLong(transactionData[1]), Float.parseFloat(transactionData[2]));
         System.out.println("Sending Transaction: " + transactionNew);
 
-        kafkaTemplate.send(topic, transactionNew);
-        System.out.println("Message sent to topic with amount: " + Float.parseFloat(transactionData[2])); // check if transaction line is being sent from producer
+        kafkaTemplate.send(topic, transactionNew);  // Send transaction to topic
+
     }
 }

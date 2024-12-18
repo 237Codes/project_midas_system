@@ -35,7 +35,7 @@ class TaskTwoTests {
     void task_two_verifier() throws InterruptedException {
         String[] transactionLines = fileLoader.loadStrings("/test_data/poiuytrewq.uiop");
 
-        System.out.println("Loaded Transactions: " + Arrays.toString(transactionLines)); // add line to check if transactions are loaded correctly
+//        System.out.println("Loaded Transactions: " + Arrays.toString(transactionLines)); // add line to check if transactions are loaded correctly
 
         for (String transactionLine : transactionLines) {
             kafkaProducer.send(transactionLine);
